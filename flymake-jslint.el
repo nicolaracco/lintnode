@@ -52,7 +52,7 @@
   :type 'boolean
   :group 'flymake-jslint)
 
-(defvar lintnode-jslint-excludes nil)
+(defvar lintnode-jslint-excludes (list 'white))
 
 (defun lintnode-start ()
   "Start the lintnode server.
