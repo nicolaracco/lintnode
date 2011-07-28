@@ -63,11 +63,11 @@ Uses `lintnode-node-program' and `lintnode-location'."
         (lintnode-excludes (if (not lintnode-jslint-excludes)
                                ""
                              (mapconcat 'identity (mapcar 'symbol-name lintnode-jslint-excludes) ","))))
-    (start-process "lintnode-server" "*lintnode*"
+    (process-kill-without-query (start-process "lintnode-server" "*lintnode*"
                    lintnode-node-program
                    lintnode-location
                    "--port" (number-to-string lintnode-port)
-                   "--exclude" lintnode-excludes)))
+                   "--exclude" lintnode-excludes))))
 
 (defun lintnode-stop ()
   "stop the lintnode server process"
